@@ -10,6 +10,7 @@
 </Property>
 	<Item Name="lib" Type="Folder">
 		<Item Name="UnderAutomation.Fanuc.dll" Type="Document" URL="../lib/UnderAutomation.Fanuc.dll"/>
+		<Item Name="ConvertCartesianPosition.vi" Type="VI" URL="../ConvertCartesianPosition.vi"/>
 	</Item>
 	<Item Name="Telnet" Type="Folder">
 		<Item Name="TelnetIsConnected.vi" Type="VI" URL="../Telnet/TelnetIsConnected.vi"/>
@@ -57,9 +58,23 @@
 		<Item Name="GetIoState.vi" Type="VI" URL="../Ftp/GetIoState.vi"/>
 		<Item Name="GetAllVariables.vi" Type="VI" URL="../Ftp/GetAllVariables.vi"/>
 		<Item Name="GetSafetyStatus.vi" Type="VI" URL="../Ftp/GetSafetyStatus.vi"/>
-		<Item Name="GetFtpCurrentPosition" Type="VI" URL="../Ftp/GetFtpCurrentPosition"/>
 		<Item Name="GetVariableFromFile.vi" Type="VI" URL="../Ftp/GetVariableFromFile.vi"/>
 		<Item Name="FtpIsConnected.vi" Type="VI" URL="../Ftp/FtpIsConnected.vi"/>
+		<Item Name="GetFtpCurrentPosition.vi" Type="VI" URL="../Ftp/GetFtpCurrentPosition.vi"/>
+	</Item>
+	<Item Name="Snpx" Type="Folder">
+		<Item Name="Registers" Type="Folder">
+			<Item Name="WriteJointPositionRegister.vi" Type="VI" URL="../Snpx/Registers/WriteJointPositionRegister.vi"/>
+			<Item Name="WriteCartesianPositionRegister.vi" Type="VI" URL="../Snpx/Registers/WriteCartesianPositionRegister.vi"/>
+			<Item Name="WriteStringRegister.vi" Type="VI" URL="../Snpx/Registers/WriteStringRegister.vi"/>
+			<Item Name="ReadStringRegister.vi" Type="VI" URL="../Snpx/Registers/ReadStringRegister.vi"/>
+			<Item Name="WriteNumericRegister.vi" Type="VI" URL="../Snpx/Registers/WriteNumericRegister.vi"/>
+			<Item Name="ReadNumericRegister.vi" Type="VI" URL="../Snpx/Registers/ReadNumericRegister.vi"/>
+			<Item Name="ReadPositionRegister.vi" Type="VI" URL="../Snpx/Registers/ReadPositionRegister.vi"/>
+		</Item>
+		<Item Name="SnpxIsConnected.vi" Type="VI" URL="../Snpx/SnpxIsConnected.vi"/>
+		<Item Name="GetWorldPosition.vi" Type="VI" URL="../Snpx/GetWorldPosition.vi"/>
+		<Item Name="GetUserFramePosition.vi" Type="VI" URL="../Snpx/GetUserFramePosition.vi"/>
 	</Item>
 	<Item Name="ConnectToRobot.vi" Type="VI" URL="../ConnectToRobot.vi"/>
 	<Item Name="RobotIsConnected.vi" Type="VI" URL="../RobotIsConnected.vi"/>
