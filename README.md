@@ -226,7 +226,7 @@ To enable SNPX on your robot, you need one of the following option :
 
 ---
 
-### Register License
+### 📜✅ Register License
 
 You have 30 days free trial. For a long term use, you need to buy a license ([See pricing](https://underautomation.com/pricing)). Then, we will send you a license key and you will just have to specify it as input of ```RegisterLicense.vi```.
 
