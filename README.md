@@ -60,17 +60,135 @@ A Windows Forms application demonstrating all the features of the library.
 📌 **Download:** [📥 UnderAutomation.Fanuc.lvproj](https://github.com/underautomation/Fanuc.vi/releases)
 
 <p align="center">
-    <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-connect-to-robot.png" >
-    <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-telnet.png" >
+    <img height="250" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-connect-to-robot.png" >
+    <img height="250" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-telnet.png" >
 </p>
 <p align="center">
-    <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-ftp.png" >
-    <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-snpx.png" >
+    <img height="250" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-ftp.png" >
+    <img height="250" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-snpx.png" >
 </p>
 
 ---
+### Connect to the robot
+![Connect to robot](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ConnectToRobot.png)
 
+### Telnet
 
+#### Run
+![Run](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Run.png)
+
+#### Pause
+![Pause](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Pause.png)
+
+#### Continue
+![Continue](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Continue.png)
+
+#### Hold
+![Hold](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Hold.png)
+
+#### Abort
+![Abort](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Abort.png)
+
+#### Abort all programs
+![Abort all programs](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-AbortAllPrograms.png)
+
+#### Clear program
+![Clear program](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ClearProgram.png)
+
+#### Get current position
+![Get current position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-GetCurrentPosition.png)
+
+#### Get variable value
+![Get variable value](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-GetVariableValue.png)
+
+#### Set variable value
+![Set variable value](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-SetVariableValue.png)
+
+#### Clear variables
+![Clear variables](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ClearVariables.png)
+
+#### Reset alarms
+![Reset alarms](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ResetAlarms.png)
+
+#### Set port
+![Set port](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-SetPort.png)
+
+#### Simulate
+![Simulate](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Simulate.png)
+
+#### Unsimulate
+![Unsimulate](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Unsimulate.png)
+
+#### Unsimulate all
+![Unsimulate all](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-UnsimulateAll.png)
+
+#### Telnet is connected
+![Telnet is connected](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-TelnetIsConnected.png)
+
+### FTP
+
+#### Get current position
+![Get current position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetCurrentPosition.png)
+
+#### Get IO states
+![Get IO states](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetIOStates.png)
+
+![Get IO states front](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetIOStates-front.png)
+
+#### Get safety status
+![Get safety status](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetSafetyStatus.png)
+
+#### Get all errors list
+![Get all errors list](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetAllErrorsList.png)
+
+#### Get numeric registers
+![Get numeric registers](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetNumericRegisters.png)
+
+#### Get position registers
+![Get position registers](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetPositionRegisters.png)
+
+#### Get string registers
+![Get string registers](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetStringRegisters.png)
+
+### SNPX
+
+#### Get world position
+![Get world position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-GetWorldPosition.png)
+
+#### Get user frame position
+![Get user frame position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-GetUserFramePosition.png)
+
+#### Read position register
+![Read position register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-ReadPosition-Register.png)
+
+#### Write position register
+
+- Write cartesian position
+
+![Write cartesian position register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteCartesianPositionRegister.png)
+
+- Write joints position
+
+![Write joints position register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteJointsPositionRegister.png)
+
+#### Read numeric register
+![Read numeric register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-ReadNumericRegister.png)
+
+#### Write numeric register
+![Write numeric register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteNumericRegister.png)
+
+#### Read string register
+![Read string register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-ReadStringRegister.png)
+
+#### Write string register
+![Write string register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteStringRegister.png)
+
+#### SNPX is connected
+![SNPX is connected](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-SnpxIsConnected.png)
+
+### Register License
+
+![Register License](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/RegisterLicense.png)
 
 ---
 
