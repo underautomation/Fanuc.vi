@@ -35,7 +35,7 @@ The **Fanuc SDK** enables seamless integration with Fanuc robots for automation,
 
 ## 🚀 TL;DR (Too Long; Didn’t Read)
 
-- ✔️ **PCDK Alternative:** No need for Fanuc’s PCDK or Robot Interface
+- ✔️ **PCDK / RobotIF Alternative:** No need for Fanuc’s PCDK or Robot Interface
 - 📖 **Read/Write Variables:** Access and modify system variables.
 - 🔄 **Register Control:** Read/write registers for positions, numbers, and strings.
 - 🎬 **Program Control:** Run, abort, and reset programs.
@@ -57,10 +57,48 @@ A Windows Forms application demonstrating all the features of the library.
 📌 **Download:** [📥 UnderAutomation.Fanuc.lvproj](https://github.com/underautomation/Fanuc.vi/releases)
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-connect-to-robot.png" >
-    <img src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-ftp.png" >
-    <img src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-snpx.png" >
-    <img src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-telnet.png" >
+    <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-connect-to-robot.png" >
+    <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-telnet.png" >
+</p>
+<p align="center">
+    <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-ftp.png" >
+    <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-snpx.png" >
 </p>
 
 ---
+
+
+
+---
+
+## 🔍 Compatibility
+
+✅ **Supported Robots:** R-J3iB, R-30iA, R-30iB  
+✅ **Operating Systems:** Windows  
+✅ **LabVIEW Versions:** LV2010 and newer  
+
+---
+
+## 📢 Contributing
+
+We welcome contributions! Feel free to:
+
+- Report issues via [GitHub Issues](https://github.com/underautomation/Fanuc.vi/issues)
+- Submit pull requests with improvements
+- Share feedback & feature requests
+
+---
+
+## 📜 License
+
+**⚠️ This SDK requires a commercial license.**  
+🔗 Learn more: [UnderAutomation Licensing](https://underautomation.com/fanuc/eula)
+
+---
+
+## 📬 Need Help?
+
+If you have any questions or need support:
+
+- 📖 **Check the Docs**: [Documentation](https://underautomation.com/fanuc/documentation)
+- 📩 **Contact Us**: [Support](https://underautomation.com/contact)
