@@ -91,7 +91,9 @@ This VI returns an instance of the robot and of each protocol. These returned va
 
 Telnet KCL allows you to send commands to a Fanuc robot, such as resetting alarms, writing variables, setting an IO, and more. This feature is natively available on all Fanuc robots without requiring any additional options.
 
-To ensure that Telnet is available on your robot or your ROBOGUIDE project, please follow this guide: [↗️ Enable TELNET on your robot](https://underautomation.com/fanuc/documentation/enable-telnet)
+To ensure that Telnet is available on your robot or your ROBOGUIDE project, please follow this guide: 
+<p align="center"><a href="https://underautomation.com/fanuc/documentation/enable-telnet" target="_blank">↗️ Enable TELNET on your robot</a></p>
+
 
 #### Run
 To run a program, you need the following conditions :
