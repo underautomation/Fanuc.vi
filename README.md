@@ -95,7 +95,7 @@ To ensure that Telnet is available on your robot or your ROBOGUIDE project, plea
 
 #### Run
 To run a program, you need the following conditions :
-- Set $RMT_MASTER = 1 (you can use ```SetVariableValue.vi```
+- Set $RMT_MASTER = 1 (you can use ```SetVariableValue.vi```)
 - Turn the TP switch to off
 
 ![Run](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Run.png)
