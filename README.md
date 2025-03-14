@@ -25,6 +25,8 @@
 
 The **Fanuc SDK** enables seamless integration with Fanuc robots for automation, data exchange, and remote control. Ideal for industrial automation, research, and advanced robotics applications.
 
+It allows you to connect to a **real robot**, but also to **ROBOGUIDE**.
+
 🔗 **More Information:** [https://underautomation.com/fanuc](https://underautomation.com/fanuc)  
 🔗 Also available for **[💻 .NET (C# / VB)](https://github.com/underautomation/Fanuc.NET)** & **[🐍 Python](https://github.com/underautomation/Fanuc.py)**
 
@@ -55,8 +57,6 @@ No additional installations or Fanuc options are required to use this SDK.
 
 Explore the **Fanuc SDK** with fully functional example applications for your LabVIEW version.
 
-A Windows Forms application demonstrating all the features of the library.
-
 📌 **Download:** [📥 UnderAutomation.Fanuc.lvproj](https://github.com/underautomation/Fanuc.vi/releases)
 
 <p align="center">
@@ -68,13 +68,34 @@ A Windows Forms application demonstrating all the features of the library.
     <img height="250" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-snpx.png" >
 </p>
 
+
 ---
-### Connect to the robot
+## 📌 Features
+The library is a set of .vi files grouped under a library ```UnderAutomation.Fanuc.lvlib```.
+
+📌 **Download:** [📥 UnderAutomation.Fanuc.lvlib](https://github.com/underautomation/Fanuc.vi/releases)
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/project-items.png" >
+</p>
+
+### 🖧 **Connect to the robot**
+```ConnectToRobot.vi``` allows you to connect to the robot using its IP address. Booleans enable or disable connection via ```Telnet```, ```FTP``` and ```SNPX``` protocols. Telnet also requires a password. For FTP, you need to enter the user and password.
+This VI returns an instance of the robot and of each protocol. These returned values are to be used as input to the VIs described below.
+
 ![Connect to robot](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ConnectToRobot.png)
 
-### Telnet
+### 🖥️ **Remote Control via Telnet KCL**
+
+Telnet KCL allows you to send commands to a Fanuc robot, such as resetting alarms, writing variables, setting an IO, and more. This feature is natively available on all Fanuc robots without requiring any additional options.
+
+To ensure that Telnet is available on your robot or your ROBOGUIDE project, please follow this guide: [↗️ Enable TELNET on your robot](https://underautomation.com/fanuc/documentation/enable-telnet)
 
 #### Run
+To run a program, you need the following conditions :
+- Set $RMT_MASTER = 1 (you can use ```SetVariableValue.vi```
+- Turn the TP switch to off
+
 ![Run](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Run.png)
 
 #### Pause
@@ -125,7 +146,9 @@ A Windows Forms application demonstrating all the features of the library.
 #### Telnet is connected
 ![Telnet is connected](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-TelnetIsConnected.png)
 
-### FTP
+### 📂 **File & Variable Management via FTP Memory Access**
+
+FTP (File Transfer Protocol) provides access to internal controller files, as well as fast parsing and decoding, including .va variable files and .dg diagnostic files.
 
 #### Get current position
 ![Get current position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetCurrentPosition.png)
@@ -150,7 +173,16 @@ A Windows Forms application demonstrating all the features of the library.
 #### Get string registers
 ![Get string registers](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetStringRegisters.png)
 
-### SNPX
+### 🚀 **High-Speed Data Exchange via SNPX (RobotIF)**
+
+SNPX (Also known as RobotIF, Robot Interface, or SRTP) allows for quick reading and writing of data on the robot.
+
+TCP port Robot IF Server (by default 60008) should be accessible on your controller.
+
+To enable SNPX on your robot, you need one of the following option :
+- If R650 FRA params is selected (Option "FANUC America Corp." in "Advanced" tab of ROBOGUIDE "Worcell creation wizard - Step 7 Robot options"), R553 "HMI Device SNPX" is needed.
+- If R651 FRL Params is selected (Option "FANUC Ltd." in this "Advanced" tab), no option is needed.
+
 
 #### Get world position
 ![Get world position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-GetWorldPosition.png)
@@ -187,6 +219,10 @@ A Windows Forms application demonstrating all the features of the library.
 ![SNPX is connected](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-SnpxIsConnected.png)
 
 ### Register License
+
+You have 30 days free trial. For a long term use, you need to buy a license ([See pricing](https://underautomation.com/pricing)). Then, we will send you a license key and you will just have to specify it as input of ```RegisterLicense.vi```.
+
+This VI must be called every time the application is started. It authorizes the call to ```ConnectToRobot.vi``` without license errors.
 
 ![Register License](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/RegisterLicense.png)
 
