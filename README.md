@@ -1,3 +1,6 @@
+# Fanuc LabVIEW Library
+
+[![UnderAutomation Fanuc communication SDK](https://raw.githubusercontent.com/underautomation/Fanuc.NET/refs/heads/main/.github/assets/banner.png)](https://underautomation.com)
 
 [![LABView 2010](https://img.shields.io/badge/LABView-2010-yellow?logo=LabVIEW)](#)
 [![LABView 2011](https://img.shields.io/badge/LABView-2011-yellow?logo=LabVIEW)](#)
@@ -15,5 +18,49 @@
 [![LABView 2023](https://img.shields.io/badge/LABView-2023-yellow?logo=LabVIEW)](#)
 [![LABView 2024](https://img.shields.io/badge/LABView-2024-yellow?logo=LabVIEW)](#)
 
+### 🤖 Effortlessly Communicate with Fanuc robots
 
-# Fanuc LabVIEW Library
+The **Fanuc SDK** enables seamless integration with Fanuc robots for automation, data exchange, and remote control. Ideal for industrial automation, research, and advanced robotics applications.
+
+🔗 **More Information:** [https://underautomation.com/fanuc](https://underautomation.com/fanuc)  
+🔗 Also available for **[💻 .NET (C# / VB)](https://github.com/underautomation/Fanuc.NET)** & **[🐍 Python](https://github.com/underautomation/Fanuc.py)**
+
+---
+
+[⭐ Star if you like it !](https://github.com/underautomation/Fanuc.vi/stargazers)
+
+[👁️ Watch to be notified of latest updates !](https://github.com/underautomation/Fanuc.vi/watchers)
+
+---
+
+## 🚀 TL;DR (Too Long; Didn’t Read)
+
+- ✔️ **PCDK Alternative:** No need for Fanuc’s PCDK or Robot Interface
+- 📖 **Read/Write Variables:** Access and modify system variables.
+- 🔄 **Register Control:** Read/write registers for positions, numbers, and strings.
+- 🎬 **Program Control:** Run, abort, and reset programs.
+- 🔔 **Alarm Management:** Reset alarms and view alarm history.
+- ⚡ **I/O Control:** Manage ports and I/O values (UI, UO, GI, GO, etc.).
+- 🔍 **State Monitoring:** Get safety status, position, diagnostics, and more.
+- 📂 **File Management:** Easily manipulate files.
+
+No additional installations or Fanuc options are required to use this SDK.
+
+---
+
+## 📥 Download Example Applications
+
+Explore the **Fanuc SDK** with fully functional example applications for your LabVIEW version.
+
+A Windows Forms application demonstrating all the features of the library.
+
+📌 **Download:** [📥 UnderAutomation.Fanuc.lvproj](https://github.com/underautomation/Fanuc.vi/releases)
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-connect-to-robot.png" >
+    <img src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-ftp.png" >
+    <img src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-snpx.png" >
+    <img src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-telnet.png" >
+</p>
+
+---
