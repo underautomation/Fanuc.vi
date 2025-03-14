@@ -32,10 +32,10 @@ jobs:
         release_name: ${{ github.ref }}
         draft: false
         prerelease: false
-
-    - name: Upload release assets
-      uses: alexellis/upload-assets@0.4.0
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+        
+    - name: Upload assets
+      uses: ncipollo/release-action@v1
       with:
-        asset_paths: '["*.zip"]'
+        artifacts: "*.zip"
+        bodyFile: "whatsNew.md"
+        token: ${{ secrets.GITHUB_TOKEN }}
