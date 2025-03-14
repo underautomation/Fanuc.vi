@@ -59,7 +59,8 @@ A Windows Forms application demonstrating all the features of the library.
 <p align="center">
     <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-connect-to-robot.png" >
     <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-telnet.png" >
-</p><p align="center">
+</p>
+<p align="center">
     <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-ftp.png" >
     <img height="300" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-snpx.png" >
 </p>
@@ -67,3 +68,37 @@ A Windows Forms application demonstrating all the features of the library.
 ---
 
 
+
+---
+
+## 🔍 Compatibility
+
+✅ **Supported Robots:** R-J3iB, R-30iA, R-30iB  
+✅ **Operating Systems:** Windows  
+✅ **LabVIEW Versions:** LV2010 and newer  
+
+---
+
+## 📢 Contributing
+
+We welcome contributions! Feel free to:
+
+- Report issues via [GitHub Issues](https://github.com/underautomation/Fanuc.vi/issues)
+- Submit pull requests with improvements
+- Share feedback & feature requests
+
+---
+
+## 📜 License
+
+**⚠️ This SDK requires a commercial license.**  
+🔗 Learn more: [UnderAutomation Licensing](https://underautomation.com/fanuc/eula)
+
+---
+
+## 📬 Need Help?
+
+If you have any questions or need support:
+
+- 📖 **Check the Docs**: [Documentation](https://underautomation.com/fanuc/documentation)
+- 📩 **Contact Us**: [Support](https://underautomation.com/contact)
