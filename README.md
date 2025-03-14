@@ -85,6 +85,8 @@ This VI returns an instance of the robot and of each protocol. These returned va
 
 ![Connect to robot](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ConnectToRobot.png)
 
+---
+
 ### 🖥️ **Remote Control via Telnet KCL**
 
 Telnet KCL allows you to send commands to a Fanuc robot, such as resetting alarms, writing variables, setting an IO, and more. This feature is natively available on all Fanuc robots without requiring any additional options.
@@ -146,6 +148,8 @@ To run a program, you need the following conditions :
 #### Telnet is connected
 ![Telnet is connected](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-TelnetIsConnected.png)
 
+---
+
 ### 📂 **File & Variable Management via FTP Memory Access**
 
 FTP (File Transfer Protocol) provides access to internal controller files, as well as fast parsing and decoding, including .va variable files and .dg diagnostic files.
@@ -172,6 +176,8 @@ FTP (File Transfer Protocol) provides access to internal controller files, as we
 
 #### Get string registers
 ![Get string registers](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetStringRegisters.png)
+
+---
 
 ### 🚀 **High-Speed Data Exchange via SNPX (RobotIF)**
 
@@ -217,6 +223,8 @@ To enable SNPX on your robot, you need one of the following option :
 
 #### SNPX is connected
 ![SNPX is connected](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-SnpxIsConnected.png)
+
+---
 
 ### Register License
 
