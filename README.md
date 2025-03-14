@@ -83,7 +83,7 @@ The library is a set of .vi files grouped under a library ```UnderAutomation.Fan
 ```ConnectToRobot.vi``` allows you to connect to the robot using its IP address. Booleans enable or disable connection via ```Telnet```, ```FTP``` and ```SNPX``` protocols. Telnet also requires a password. For FTP, you need to enter the user and password.
 This VI returns an instance of the robot and of each protocol. These returned values are to be used as input to the VIs described below.
 
-![Connect to robot](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ConnectToRobot.png)
+![Connect to robot](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ConnectToRobot.png)
 
 ---
 
