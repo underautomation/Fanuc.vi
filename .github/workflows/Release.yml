@@ -21,17 +21,6 @@ jobs:
             zip -r "UnderAutomation.Fanuc_${dir}.zip" "$dir"
           fi
         done
-
-    - name: Create GitHub Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: ${{ github.ref }}
-        draft: false
-        prerelease: false
         
     - name: Upload assets
       uses: ncipollo/release-action@v1
