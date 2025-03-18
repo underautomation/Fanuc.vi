@@ -36,6 +36,9 @@ It allows you to connect to a **real robot**, but also to **ROBOGUIDE**.
 
 [👁️ Watch to be notified of latest updates !](https://github.com/underautomation/Fanuc.vi/watchers)
 
+
+https://github.com/user-attachments/assets/cc3e3bc1-2e36-4d01-b94a-55ba77a85632
+
 ---
 
 ## 🚀 TL;DR (Too Long; Didn’t Read)
@@ -50,6 +53,12 @@ It allows you to connect to a **real robot**, but also to **ROBOGUIDE**.
 - 📂 **File Management:** Easily manipulate files.
 
 No additional installations or Fanuc options are required to use this SDK.
+
+
+
+
+
+
 
 ---
 
