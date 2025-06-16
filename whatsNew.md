@@ -1,1 +1,1 @@
-- Update Telnet error message when the run command failed because $REMOTE_CFG.$REMOTE_TYPE is not set to 1
+- Implements reading of Fanuc Features and Order No by FTP
