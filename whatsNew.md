@@ -1,2 +1,1 @@
-- Add property `HasAsciiUpload` in class UnderAutomation.Fanuc.Ftp.Diagnosis.Features to detect if option R507 ("ASCII Upload" on older controllers) or R796 ("ASCII Program Loader" on most recent controllers) is installed on the controller
-- When the SDK connects to ROBOGUIDE using a path to a robot project folder, parse the `Robot Server HostName` field in services.txt in order to use the actual IP address of the simulated controller instead of 127.0.0.1
+- Add missing DLL in ZIP from LV2010 to LV2023
