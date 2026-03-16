@@ -9,7 +9,6 @@
 </Property>
 	<Item Name="lib" Type="Folder">
 		<Item Name="UnderAutomation.Fanuc.dll" Type="Document" URL="../lib/UnderAutomation.Fanuc.dll"/>
-		<Item Name="ConvertCartesianPosition.vi" Type="VI" URL="../ConvertCartesianPosition.vi"/>
 	</Item>
 	<Item Name="Telnet" Type="Folder">
 		<Item Name="TelnetIsConnected.vi" Type="VI" URL="../Telnet/TelnetIsConnected.vi"/>
@@ -49,9 +48,6 @@
 			<Item Name="GetStrReg.vi" Type="VI" URL="../Ftp/KnownVariableFiles/GetStrReg.vi"/>
 			<Item Name="GetPosReg.vi" Type="VI" URL="../Ftp/KnownVariableFiles/GetPosReg.vi"/>
 		</Item>
-		<Item Name="Helpers" Type="Folder">
-			<Item Name="GetVariableField.vi" Type="VI" URL="../Helpers/GetVariableField.vi"/>
-		</Item>
 		<Item Name="GetVariableFiles.vi" Type="VI" URL="../Ftp/GetVariableFiles.vi"/>
 		<Item Name="GetAllErrorsList.vi" Type="VI" URL="../Ftp/GetAllErrorsList.vi"/>
 		<Item Name="GetIoState.vi" Type="VI" URL="../Ftp/GetIoState.vi"/>
@@ -74,6 +70,10 @@
 		<Item Name="SnpxIsConnected.vi" Type="VI" URL="../Snpx/SnpxIsConnected.vi"/>
 		<Item Name="GetWorldPosition.vi" Type="VI" URL="../Snpx/GetWorldPosition.vi"/>
 		<Item Name="GetUserFramePosition.vi" Type="VI" URL="../Snpx/GetUserFramePosition.vi"/>
+	</Item>
+	<Item Name="Helpers" Type="Folder">
+		<Item Name="GetVariableField.vi" Type="VI" URL="../Helpers/GetVariableField.vi"/>
+		<Item Name="ConvertCartesianPosition.vi" Type="VI" URL="../Helpers/ConvertCartesianPosition.vi"/>
 	</Item>
 	<Item Name="ConnectToRobot.vi" Type="VI" URL="../ConnectToRobot.vi"/>
 	<Item Name="RobotIsConnected.vi" Type="VI" URL="../RobotIsConnected.vi"/>
