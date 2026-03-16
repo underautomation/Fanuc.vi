@@ -1,3 +1,3 @@
 ## Bug Fix
 
-Fix bloken connections in certain VIs caused by changes to the underlying DLL
+Fixed version of the file `ConvertCartesianPosition.vi` that was not correctly exported for older versions of LabVIEW.
