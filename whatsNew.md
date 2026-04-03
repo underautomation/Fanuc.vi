@@ -1,65 +1,91 @@
-# SNPX : Comments and Simulation Status
+## Kinematics via CGTP
 
-## New feature : Comments
+- New `InvertKinematics` method: compute inverse kinematics on the controller, converting a Cartesian position to joint angles.
+- New `ForwardKinematics` method: compute forward kinematics on the controller, converting joint angles to a Cartesian position.
+- Both methods execute the computation on the controller itself, ensuring results match the robot's actual kinematic model.
 
-New `Comments` accessor allows reading and writing comments of registers, position registers, string registers and I/O signals via SNPX.
+## Batch variable read/write via CGTP
 
-```csharp
-// Read the comment of R[1] (default 16 characters)
-string comment = robot.Snpx.Comments.Read(CommentType.Register, 1);
+- New `ReadBatchVariables(CgtpBatchVariables)` method: read multiple variables from the controller in a single request.
+- New `WriteBatchVariables(CgtpBatchVariables)` method: write multiple variables to the controller in a single request.
+- New `CgtpBatchVariables` collection (implements `IList<ICgtpBatchVariable>`) with convenience methods to add variables:
+  - `AddNumericRegister(index)`, `AddNumericRegisterAsInteger(index, value)`, `AddNumericRegisterAsReal(index, value)` for numeric registers R[].
+  - `AddStringRegister(index)`, `AddStringRegisterWithValue(index, value)` for string registers SR[].
+  - `AddPositionRegister(index)`, `AddPositionRegisterAsCartesian(index, ...)`, `AddPositionRegisterAsJoint(index, ...)` for position registers PR[].
+  - `AddVariable(name, program)` for any named variable.
+- New typed variable classes: `CgtpNumericRegister`, `CgtpStringRegister`, `CgtpPositionRegister`, `CgtpVariable`, all implementing `ICgtpBatchVariable`.
+- `CgtpVariable` exposes typed getters/setters: `IntegerValue`, `RealValue`, `BooleanValue`, `StringValue`, `CartesianPositionValue`, `JointPositionValue`, `VectorValue`, `ConfigurationValue`, `StructureValue`.
+- `CgtpVariable.StructureValue` returns a tree of `CgtpStructureField` for structured variables (FIELD/ARRAY nodes).
+- After a batch read, each variable exposes `Exists`, `IsUninitialized`, and `IsReadOnly` status properties.
+- `CgtpBatchReadResult.Version` returns the controller firmware version from the response.
 
-// Read the comment of DI[3] with a custom length
-string diComment = robot.Snpx.Comments.Read(CommentType.DI, 3);
+## File access and decoding via CGTP
 
-// Write a comment to PR[5]
-robot.Snpx.Comments.Write(CommentType.PositionRegister, 5, "My position");
-```
+- New `CgtpFileClient` accessible via `CgtpClient.Http`: download and decode controller files over HTTP, without FTP.
+- `CgtpClient.Http` inherits from `FileClientBase`: all shared file-reading methods are available (`GetSummaryDiagnostic()`, `GetAllErrorsList()`, `GetCurrentPosition()`, `GetIOState()`, `GetSafetyStatus()`, `GetProgramStates()`, `GetVariablesFromFile()`, `KnownVariableFiles`).
+- `BasePath` property (default `"MD"`) controls the root path used for file downloads.
+- `DownloadAsBytes(fileName)`, `DownloadAsString(fileName)`, and `DownloadAsStream(fileName)` to download raw files from the controller. HTML responses containing a `<PRE>` block are automatically unwrapped; binary files are returned as-is.
+- `ListVariables()` returns `CgtpAsciiFileItem[]` listing all variable files (binary and ASCII) from the controller.
+- `ListTpPrograms()` returns `CgtpAsciiFileItem[]` listing all TP program files (binary and ASCII) from the controller.
+- `ListDiagnosticFiles()` returns `CgtpFileItem[]` listing all diagnostic and error log files from the controller.
+- `ListOtherFiles()` returns `CgtpFileItem[]` listing all other files from the controller.
+- New data models: `CgtpFileItem` (with `File` and `Comment` properties) and `CgtpAsciiFileItem` (adds `AsciiFile` for the ASCII format variant).
 
-Supported types: `Register`, `PositionRegister`, `StringRegister`, `DI`, `DO`, `RI`, `RO`, `UI`, `UO`, `SI`, `SO`, `WI`, `WO`, `WSI`, `WSO`, `GI`, `GO`, `AI`, `AO`.
+## Handle comments and user alarms via CGTP
 
-## New feature : Simulation Status
+- Bulk read of numeric registers with comments and values via `ReadNumericRegistersWithComment()`.
+- Bulk read of string registers with comments and values via `ReadStringRegistersWithComment()`.
+- Bulk read of user alarm definitions (comment and severity) via `ReadUserAlarms()`.
+- New unified `GetComments(CgtpCommentType type)` method to read all comments for any element type: numeric registers, position registers, string registers, user alarms, flags, and all I/O types (DI, DO, RI, RO, GI, GO, AI, AO).
+- New `GetIoComments(CgtpCommentIoType type)` method to read paired input/output comments for a given I/O type (Robot, Digital, Group, Analog).
+- `SetComment(CgtpCommentType type, int index, string comment)` to write the comment of any register or I/O port.
+- `WriteNumericRegisterAsDouble()` and `WriteNumericRegisterAsInteger()` to write numeric register values with explicit type control.
+- `WriteStringRegister()` to write a string register value.
+- `SetUserAlarmSeverity()` to set the severity level of a user alarm.
+- New enums `CgtpCommentType` and `CgtpCommentIoType` for strongly-typed comment operations.
+- New data models: `StringRegisterWithComment`, `UserAlarmDefinition`, `IOComments`.
+- HTTP Basic authentication support: new `Login` and `Password` properties on `CgtpConnectParametersBase` for controllers that require credentials.
+- CGTP also works on the standard HTTP port 80 by setting `CgtpConnectParameters.Port = 80`.
 
-New `SimulationStatus` accessor allows reading and writing the simulation state of I/O signals via SNPX.
+## New KCL client over CGTP
 
-```csharp
-// Check if DI[1] is simulated
-bool isSimulated = robot.Snpx.SimulationStatus.Read(SimulationType.DI, 1);
+- New `CgtpKclClient` class accessible via `CgtpClient.Kcl` : execute KCL commands over the CGTP Web Server (HTTP), without a Telnet connection.
+- Full KCL command set available: `Abort`, `AbortAll`, `ClearAll`, `ClearProgram`, `ClearVars`, `Continue`, `Hold`, `Pause`, `Reset`, `Run`, `SetPort`, `SetVariable`, `GetCurrentPose`, `GetVariable`, `Simulate`, `Unsimulate`, `UnsimulateAll`, `SendCustomCommand`, `GetTaskInformation`, `AddBreakpoint`, `RemoveBreakpoint`, `RemoveAllBreakpoints`, `GetBreakpoints`, `StepOn`, `StepOff`.
+- New `SendCustomCommandUnsafe()` method to send any custom KCL command via the Comet CPKCL endpoint.
+- New abstract `KclClientBase` base class in `UnderAutomation.Fanuc.Common.Kcl` shared between `TelnetClientBase` and `CgtpKclClient`, ensuring a unified KCL API across both protocols.
+- `CgtpClient.Kcl` is never null and always uses the language configured on `CgtpClient`.
 
-// Enable simulation on RO[2]
-robot.Snpx.SimulationStatus.Write(SimulationType.RO, 2, true);
+## New Telnet Feature
 
-// Disable simulation on GI[5]
-robot.Snpx.SimulationStatus.Write(SimulationType.GI, 5, false);
-```
+- New event `StringDataReceived` on `TelnetClientBase` to receive decoded string data from the controller, in addition to raw byte data. This is useful for handling text-based responses from any connected KCL client (CGTP, Telnet, ...) in a unified way.
 
-Supported types: `DI`, `DO`, `RI`, `RO`, `WI`, `WO`, `WSI`, `WSO`, `GI`, `GO`, `AI`, `AO`.
+## Shared file reading foundation (FTP)
 
-# Telnet : Fix premature response finalization on non-English controllers
+- File reading, parsing, and variable decoding logic has been extracted from the FTP client into a shared foundation in `UnderAutomation.Fanuc.Common.Files`, laying the groundwork for future protocol-agnostic file access.
+- New `FileClientBase` abstract base class in `UnderAutomation.Fanuc.Common.Files`: centralizes methods such as `GetSummaryDiagnostic()`, `GetAllErrorsList()`, `GetCurrentPosition()`, `GetIOState()`, `GetSafetyStatus()`, `GetProgramStates()`, `GetVariablesFromFile()`, and the `KnownVariableFiles` property.
+- `FtpClientBase` now inherits from `FileClientBase`: all file-reading methods remain available on the FTP client with the same signatures.
+- `FtpKnownVariableFiles` has been replaced by the shared `KnownVariableFiles` class in `UnderAutomation.Fanuc.Common.Files`.
+- `FanucFileReaders` static helper (reading `.va`, `.dg`, `.ls` files) moved to `UnderAutomation.Fanuc.Common.Files`.
+- New `FanucFileReaders.ReadFile(string path)` static method to read and auto-detect any supported Fanuc file from disk.
+- New `ParseResult()` method in KCL `GetVariableResult` class to decode and get a structured representation of the variable (value, type, scope, ...).
 
-Fixed an issue where Telnet KCL commands (e.g. `GetVariable`, `SetVariable`) could fail on non-English controllers (Chinese, Japanese...) due to intermediate VT100 display-update frames being incorrectly interpreted as the end of a response.
+## Breaking changes
 
-On some controllers, status bar refresh frames (containing only ANSI escape sequences) arrive before the actual command response data. These empty frames were causing the result to be finalized prematurely, leading to missing or empty values.
+- **`CgtpClient.Connect()` signature changed**: now accepts optional `login` and `password` parameters.
+- Namespace migration for shared KCL types: `Result`, `BaseResult`, `KCLPorts`, `KclClientBase`, and all KCL result classes (`ProgramCommandResult`, `RunResult`, `SetVariableResult`, `GetVariableResult`, `SetPortResult`, `SimulateResult`, `UnsimulateResult`, `GetCurrentPoseResult`, `TaskInformationResult`, `BreakpointsResult`, etc.) moved from `UnderAutomation.Fanuc.Telnet` to `UnderAutomation.Fanuc.Common.Kcl`.
+- Telnet-specific event types (`RawDataReceivedEventArgs`, `TpCoordinates`, `MessageReceivedEventArgs`, `KclClientErrorEventArgs`, `CommandSentEventArgs`, `KclCommandReceived`) remain in `UnderAutomation.Fanuc.Telnet`.
+- Namespace migration for shared position models: moved from `UnderAutomation.Fanuc.Ftp.Variables` to `UnderAutomation.Fanuc.Common`.
+- Affected types: `CartesianPositionVariable`, `JointPositionVariable`, `PositionRegister`, `VectorVariable`.
+- Namespace migration for file reading and variable decoding:
+  - Diagnosis types (`SummaryDiagnosis`, `CurrentPosition`, `IOState`, `SafetyStatus`, `ProgramStates`, `GroupPosition`, `Feature`, etc.) moved from `UnderAutomation.Fanuc.Ftp.Diagnosis` to `UnderAutomation.Fanuc.Common.Files.Diagnosis`.
+  - Error list types (`ErrorList`, `ErrallSectionItem`, `ErrallSectionParser`) moved from `UnderAutomation.Fanuc.Ftp.Files.List` to `UnderAutomation.Fanuc.Common.Files.List`.
+  - Variable types (`GenericVariableFile`, `GenericVariable`, `GenericField`, `GenericValue`, `ValueKind`, `ArrayElement`, `VariableFile`, `VariableFileList`, etc.) moved from `UnderAutomation.Fanuc.Ftp.Variables` to `UnderAutomation.Fanuc.Common.Files.Variables`.
+  - All autogenerated variable file readers and type definitions moved from `UnderAutomation.Fanuc.Ftp.Autogenerated` to `UnderAutomation.Fanuc.Common.Files.Variables.Autogenerated`.
+  - File infrastructure types (`FanucFileReaders`, `FileParser`, `FileReader`, `IFileReader`, `IFanucContent`) moved from `UnderAutomation.Fanuc.Ftp` / `UnderAutomation.Fanuc.Ftp.Internal` to `UnderAutomation.Fanuc.Common.Files`.
+- `TelnetClientBase` now inherits from `KclClientBase` : all KCL methods remain available on the Telnet client with the same signatures.
+- CGTP enum/type naming has been aligned for clarity in public APIs (for example IoPortType and ProgramSubType naming in CGTP).
 
-A new mechanism now allows multi-frame results (`GetVariableResult`, `SetVariableResult`, `BreakpointsResult`) to defer finalization until meaningful data has actually been received.
+## Improved
 
-# SNPX : String registers span and fixes
-
-## New feature : String registers span
-
-New `StringRegistersSpan` accessor allows reading and writing substrings of string registers (SR[]) with control over start index and length.
-
-```csharp
-// Read 10 characters starting at position 4 from SR[1]
-string value = robot.Snpx.StringRegistersSpan.Read(registerIndex: 1, stringLength: 10, stringStartIndex: 4);
-
-// Write a substring into SR[2]
-robot.Snpx.StringRegistersSpan.Write(registerIndex: 2, value: "Hello", stringLength: 10, stringStartIndex: 0);
-```
-
-## Fix for writing empty strings
-
-Allow SNPX to write empty strings to string variables and string registers. String encoding now uses fixed-length byte buffers, preventing issues with empty or odd-length strings.
-
-## Fix missing assignable elements
-
-`NumericRegistersInt16`, `NumericRegistersInt32`, `StringRegistersSpan` and `Flags` are now correctly included in SNPX assignable elements, ensuring `ClearAssignments()` and `GetAssignments()` cover all element types.
+- Improved robustness of value parsing for position and register data.
+- Improved CGTP error reporting with clearer messages in common failure scenarios.
