@@ -1,64 +1,45 @@
-# Fanuc LabVIEW Library
+# Fanuc Robot Communication SDK for LabVIEW
 
 <p align="center">
     <img width="100%" alt="Fanuc LabVIEW Library" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/banner.png" >
 </p>
 
-[![LABView 2010](https://img.shields.io/badge/LABView-2010-yellow?logo=LabVIEW)](#)
-[![LABView 2011](https://img.shields.io/badge/LABView-2011-yellow?logo=LabVIEW)](#)
-[![LABView 2012](https://img.shields.io/badge/LABView-2012-yellow?logo=LabVIEW)](#)
-[![LABView 2013](https://img.shields.io/badge/LABView-2013-yellow?logo=LabVIEW)](#)
-[![LABView 2014](https://img.shields.io/badge/LABView-2014-yellow?logo=LabVIEW)](#)
-[![LABView 2015](https://img.shields.io/badge/LABView-2015-yellow?logo=LabVIEW)](#)
-[![LABView 2016](https://img.shields.io/badge/LABView-2016-yellow?logo=LabVIEW)](#)
-[![LABView 2017](https://img.shields.io/badge/LABView-2017-yellow?logo=LabVIEW)](#)
-[![LABView 2018](https://img.shields.io/badge/LABView-2018-yellow?logo=LabVIEW)](#)
-[![LABView 2019](https://img.shields.io/badge/LABView-2019-yellow?logo=LabVIEW)](#)
-[![LABView 2020](https://img.shields.io/badge/LABView-2020-yellow?logo=LabVIEW)](#)
-[![LABView 2021](https://img.shields.io/badge/LABView-2021-yellow?logo=LabVIEW)](#)
-[![LABView 2022](https://img.shields.io/badge/LABView-2022-yellow?logo=LabVIEW)](#)
-[![LABView 2023](https://img.shields.io/badge/LABView-2023-yellow?logo=LabVIEW)](#)
-[![LABView 2024](https://img.shields.io/badge/LABView-2024-yellow?logo=LabVIEW)](#)
+[![LabVIEW](https://img.shields.io/badge/LabVIEW-2010_to_2024-yellow)](#compatibility)
+[![License](https://img.shields.io/badge/license-commercial-blue)](https://underautomation.com/fanuc/eula)
 
-### 🤖 Effortlessly Communicate with Fanuc robots
+**UnderAutomation.Fanuc** for LabVIEW is a library of VIs that communicates with Fanuc robot controllers
+(R-J3iB, R-30iA, R-30iB, R-50iA) and with **ROBOGUIDE**. It wraps the .NET SDK `UnderAutomation.Fanuc.dll`.
+Nothing is installed on the robot. No PCDK and no Robot Interface are needed on the PC.
 
-The **Fanuc SDK** enables seamless integration with Fanuc robots for automation, data exchange, and remote control. Ideal for industrial automation, research, and advanced robotics applications.
+Use it to read and write variables and registers, run and stop programs, reset alarms, set and simulate
+I/O, and read the position, the I/O states and the safety status of the robot.
 
-It allows you to connect to a **real robot**, but also to **ROBOGUIDE**.
-
-🔗 **More Information:** [https://underautomation.com/fanuc](https://underautomation.com/fanuc)  
-🔗 Also available for **[💻 .NET (C# / VB)](https://github.com/underautomation/Fanuc.NET)** & **[🐍 Python](https://github.com/underautomation/Fanuc.py)**
-
----
-
-[⭐ Star if you like it !](https://github.com/underautomation/Fanuc.vi/stargazers)
-
-[👁️ Watch to be notified of latest updates !](https://github.com/underautomation/Fanuc.vi/watchers)
+- Product page: [underautomation.com/fanuc](https://underautomation.com/fanuc)
+- Documentation: [underautomation.com/fanuc/documentation](https://underautomation.com/fanuc/documentation)
+- Also available for .NET: [Fanuc.NET](https://github.com/underautomation/Fanuc.NET), and for Python: [Fanuc.py](https://github.com/underautomation/Fanuc.py)
 
 https://github.com/user-attachments/assets/cc3e3bc1-2e36-4d01-b94a-55ba77a85632
 
----
+## What you can do
 
-## 🚀 TL;DR (Too Long; Didn’t Read)
+| Feature | Protocol | Controller option |
+| --- | --- | --- |
+| Run, pause, hold, abort programs, read and write variables, reset alarms, set and simulate ports | Telnet KCL | none |
+| Read variable files, registers, I/O states, safety status, alarm history, current position, transfer files | FTP | none |
+| Fast read and write of registers, current position | SNPX | R553 "HMI Device SNPX" on FANUC America controllers (R650 FRA), none on FANUC Ltd. controllers (R651 FRL) |
+| Run, pause and abort programs, read and write variables | CGTP (web server of the controller) | none |
 
-- ✔️ **PCDK / RobotIF Alternative:** No need for Fanuc’s PCDK or Robot Interface
-- 📖 **Read/Write Variables:** Access and modify system variables.
-- 🔄 **Register Control:** Read/write registers for positions, numbers, and strings.
-- 🎬 **Program Control:** Run, abort, and reset programs.
-- 🔔 **Alarm Management:** Reset alarms and view alarm history.
-- ⚡ **I/O Control:** Manage ports and I/O values (UI, UO, GI, GO, etc.).
-- 🔍 **State Monitoring:** Get safety status, position, diagnostics, and more.
-- 📂 **File Management:** Easily manipulate files.
+## Installation
 
-Nothing has to be installed on the robot, and most features work without any Fanuc option. For advanced uses, if your controller has the HMI Device SNPX (R553) option, the library can use it too.
+Each release of this repository has one zip per LabVIEW version, from 2010 to 2024:
+[releases page](https://github.com/underautomation/Fanuc.vi/releases). You can also clone this repository
+and open the folder `LabVIEW_<version>` of your version.
 
----
+Each folder contains:
 
-## 📥 Download Example Applications
-
-Explore the **Fanuc SDK** with fully functional example applications for your LabVIEW version.
-
-📌 **Download:** [📥 UnderAutomation.Fanuc.lvproj](https://github.com/underautomation/Fanuc.vi/releases)
+- `UnderAutomation.Fanuc/UnderAutomation.Fanuc.lvlib`: the library of VIs, with the DLL;
+- `Examples/1.Main demo.vi`: a demo application that uses every protocol;
+- `UnderAutomation.Fanuc.lvproj`: the LabVIEW project that contains both.
 
 <p align="center">
     <img height="250" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-connect-to-robot.png" >
@@ -69,240 +50,133 @@ Explore the **Fanuc SDK** with fully functional example applications for your La
     <img height="250" src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/main-demo-snpx.png" >
 </p>
 
----
-
-## 📌 Features
-
-The library is a set of .vi files grouped under a library `UnderAutomation.Fanuc.lvlib`.
-
-📌 **Download:** [📥 UnderAutomation.Fanuc.lvlib](https://github.com/underautomation/Fanuc.vi/releases)
-
 <p align="center">
     <img src="https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/project-items.png" >
 </p>
 
-### 🖧 **Connect to the robot**
+## Getting started
 
-`ConnectToRobot.vi` allows you to connect to the robot using its IP address. Booleans enable or disable connection via `Telnet`, `FTP` and `SNPX` protocols. Telnet also requires a password. For FTP, you need to enter the user and password.
-This VI returns an instance of the robot and of each protocol. These returned values are to be used as input to the VIs described below.
+### Register the license
 
-![Connect to robot](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ConnectToRobot.png)
-
----
-
-### 🖥️ **Remote Control via Telnet KCL**
-
-Telnet KCL allows you to send commands to a Fanuc robot, such as resetting alarms, writing variables, setting an IO, and more. This feature is natively available on all Fanuc robots without requiring any additional options.
-
-To ensure that Telnet is available on your robot or your ROBOGUIDE project, please follow this guide:
-
-<p align="center"><a href="https://underautomation.com/fanuc/documentation/enable-telnet" target="_blank">↗️ Enable TELNET on your robot</a></p>
-
-#### Run
-
-To run a program, you need the following conditions :
-
-- Set `$RMT_MASTER = 1` and `$REMOTE_CFG.$REMOTE_TYPE=1` (you can use `SetVariableValue.vi`)
-- Turn the TP switch to off
-- Reset alarms
-
-![Run](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Run.png)
-
-#### Pause
-
-![Pause](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Pause.png)
-
-#### Continue
-
-![Continue](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Continue.png)
-
-#### Hold
-
-![Hold](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Hold.png)
-
-#### Abort
-
-![Abort](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Abort.png)
-
-#### Abort all programs
-
-![Abort all programs](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-AbortAllPrograms.png)
-
-#### Clear program
-
-![Clear program](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ClearProgram.png)
-
-#### Get current position
-
-![Get current position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-GetCurrentPosition.png)
-
-#### Get variable value
-
-![Get variable value](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-GetVariableValue.png)
-
-#### Set variable value
-
-![Set variable value](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-SetVariableValue.png)
-
-#### Clear variables
-
-![Clear variables](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ClearVariables.png)
-
-#### Reset alarms
-
-![Reset alarms](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ResetAlarms.png)
-
-#### Set port
-
-![Set port](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-SetPort.png)
-
-#### Simulate
-
-![Simulate](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Simulate.png)
-
-#### Unsimulate
-
-![Unsimulate](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Unsimulate.png)
-
-#### Unsimulate all
-
-![Unsimulate all](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-UnsimulateAll.png)
-
-#### Telnet is connected
-
-![Telnet is connected](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-TelnetIsConnected.png)
-
----
-
-### 📂 **File & Variable Management via FTP Memory Access**
-
-FTP (File Transfer Protocol) provides access to internal controller files, as well as fast parsing and decoding, including .va variable files and .dg diagnostic files.
-
-#### Get current position
-
-![Get current position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetCurrentPosition.png)
-
-#### Get IO states
-
-![Get IO states](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetIOStates.png)
-
-![Get IO states front](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetIOStates-front.png)
-
-#### Get safety status
-
-![Get safety status](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetSafetyStatus.png)
-
-#### Get all errors list
-
-![Get all errors list](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetAllErrorsList.png)
-
-#### Get numeric registers
-
-![Get numeric registers](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetNumericRegisters.png)
-
-#### Get position registers
-
-![Get position registers](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetPositionRegisters.png)
-
-#### Get string registers
-
-![Get string registers](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetStringRegisters.png)
-
----
-
-### 🚀 **High-Speed Data Exchange via SNPX (RobotIF)**
-
-SNPX (Also known as RobotIF, Robot Interface, or SRTP) allows for quick reading and writing of data on the robot.
-
-TCP port Robot IF Server (by default 60008) should be accessible on your controller.
-
-To enable SNPX on your robot, you need one of the following option :
-
-- If R650 FRA params is selected (Option "FANUC America Corp." in "Advanced" tab of ROBOGUIDE "Worcell creation wizard - Step 7 Robot options"), R553 "HMI Device SNPX" is needed.
-- If R651 FRL Params is selected (Option "FANUC Ltd." in this "Advanced" tab), no option is needed.
-
-#### Get world position
-
-![Get world position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-GetWorldPosition.png)
-
-#### Get user frame position
-
-![Get user frame position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-GetUserFramePosition.png)
-
-#### Read position register
-
-![Read position register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-ReadPosition-Register.png)
-
-#### Write position register
-
-- Write cartesian position
-
-![Write cartesian position register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteCartesianPositionRegister.png)
-
-- Write joints position
-
-![Write joints position register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteJointsPositionRegister.png)
-
-#### Read numeric register
-
-![Read numeric register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-ReadNumericRegister.png)
-
-#### Write numeric register
-
-![Write numeric register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteNumericRegister.png)
-
-#### Read string register
-
-![Read string register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-ReadStringRegister.png)
-
-#### Write string register
-
-![Write string register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteStringRegister.png)
-
-#### SNPX is connected
-
-![SNPX is connected](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-SnpxIsConnected.png)
-
----
-
-### 📜✅ Register License
-
-You have 30 days free trial. For a long term use, you need to buy a license ([See pricing](https://underautomation.com/pricing)). Then, we will send you a license key and you will just have to specify it as input of `RegisterLicense.vi`.
-
-This VI must be called every time the application is started. It authorizes the call to `ConnectToRobot.vi` without license errors.
+The library runs in trial mode for 30 days. After the trial, give your license key to
+`RegisterLicense.vi`. Call it each time the application starts, before `ConnectToRobot.vi`.
 
 ![Register License](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/RegisterLicense.png)
 
----
+### Connect to the robot
 
-## 🔍 Compatibility
+`ConnectToRobot.vi` connects to the robot with its IP address. Booleans enable or disable each protocol
+(Telnet, FTP, SNPX). Telnet needs its password, FTP needs a user and a password. The VI returns the robot
+and one reference per protocol: give them to the VIs below. `DisconnectFromRobot.vi` closes the
+connection.
 
-✅ **Supported Robots:** R-J3iB, R-30iA, R-30iB, R-50iA
-✅ **Operating Systems:** Windows  
-✅ **LabVIEW Versions:** LV2010 and newer
+![Connect to robot](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ConnectToRobot.png)
 
----
+## Features
 
-## 📢 Contributing
+### Telnet KCL
 
-We welcome contributions! Feel free to:
+Telnet KCL sends commands to the controller: reset the alarms, write variables, set an I/O... It needs no
+option on the controller. To enable Telnet on the robot or in ROBOGUIDE, follow
+[this tutorial](https://underautomation.com/fanuc/documentation/telnet-enable-on-robot).
 
-- Report issues via [GitHub Issues](https://github.com/underautomation/Fanuc.vi/issues)
-- Submit pull requests with improvements
-- Share feedback & feature requests
+To run a program:
 
----
+- set `$RMT_MASTER = 1` and `$REMOTE_CFG.$REMOTE_TYPE = 1` (with `SetVariableValue.vi`);
+- turn the switch of the teach pendant off;
+- reset the alarms.
 
-## 📜 License
+![Run](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Run.png)
 
-**⚠️ This SDK requires a commercial license.**  
-🔗 Learn more: [UnderAutomation Licensing](https://underautomation.com/fanuc/eula)
+The other VIs of the `Telnet` folder:
 
----
+| VI | Diagram |
+| --- | --- |
+| `Pause.vi` | ![Pause](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Pause.png) |
+| `Continue.vi` | ![Continue](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Continue.png) |
+| `Hold.vi` | ![Hold](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Hold.png) |
+| `Abort.vi` | ![Abort](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Abort.png) |
+| `AbortAllPrograms.vi` | ![Abort all programs](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-AbortAllPrograms.png) |
+| `ClearProgram.vi` | ![Clear program](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ClearProgram.png) |
+| `GetCurrentPosition.vi` | ![Get current position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-GetCurrentPosition.png) |
+| `GetVariableValue.vi` | ![Get variable value](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-GetVariableValue.png) |
+| `SetVariableValue.vi` | ![Set variable value](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-SetVariableValue.png) |
+| `ClearVariables.vi` | ![Clear variables](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ClearVariables.png) |
+| `ResetAlarms.vi` | ![Reset alarms](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-ResetAlarms.png) |
+| `SetPort.vi` | ![Set port](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-SetPort.png) |
+| `Simulate.vi` | ![Simulate](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Simulate.png) |
+| `Unsimulate.vi` | ![Unsimulate](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-Unsimulate.png) |
+| `UnsimulateAll.vi` | ![Unsimulate all](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-UnsimulateAll.png) |
+| `TelnetIsConnected.vi` | ![Telnet is connected](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/telnet-TelnetIsConnected.png) |
 
-## 📬 Need Help?
+`GetTaskInfo.vi` reads the state of a task.
 
-If you have any questions or need support:
+### FTP
 
-- 📖 **Check the Docs**: [Documentation](https://underautomation.com/fanuc/documentation)
-- 📩 **Contact Us**: [Support](https://underautomation.com/contact)
+FTP gives access to the files of the controller, and reads and decodes the variable files (`.va`) and the
+diagnostic files (`.dg`).
+
+| VI | Diagram |
+| --- | --- |
+| `GetFtpCurrentPosition.vi` | ![Get current position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetCurrentPosition.png) |
+| `GetIoState.vi` | ![Get IO states](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetIOStates.png) |
+| `GetSafetyStatus.vi` | ![Get safety status](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetSafetyStatus.png) |
+| `GetAllErrorsList.vi` | ![Get all errors list](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetAllErrorsList.png) |
+| Numeric registers (`KnownVariableFiles`) | ![Get numeric registers](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetNumericRegisters.png) |
+| Position registers (`KnownVariableFiles`) | ![Get position registers](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetPositionRegisters.png) |
+| String registers (`KnownVariableFiles`) | ![Get string registers](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetStringRegisters.png) |
+
+Front panel of the I/O states:
+
+![Get IO states front](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/ftp-GetIOStates-front.png)
+
+`GetAllVariables.vi`, `GetVariableFiles.vi` and `GetVariableFromFile.vi` read the variables, and the VIs
+of `DirectFileHandling` transfer files.
+
+### SNPX
+
+SNPX (also known as SRTP, RobotIF or Robot Interface) reads and writes data on the robot quickly. The
+TCP port of the Robot IF server (60008 by default) must be reachable on the controller. In ROBOGUIDE, the
+parameters are chosen in the "Advanced" tab of step 7 "Robot options" of the workcell creation wizard:
+"FANUC America Corp." (R650 FRA) needs option R553 "HMI Device SNPX", "FANUC Ltd." (R651 FRL) needs no
+option.
+
+| VI | Diagram |
+| --- | --- |
+| `GetWorldPosition.vi` | ![Get world position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-GetWorldPosition.png) |
+| `GetUserFramePosition.vi` | ![Get user frame position](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-GetUserFramePosition.png) |
+| Read a position register | ![Read position register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-ReadPosition-Register.png) |
+| Write a Cartesian position register | ![Write cartesian position register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteCartesianPositionRegister.png) |
+| Write a joint position register | ![Write joints position register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteJointsPositionRegister.png) |
+| Read a numeric register | ![Read numeric register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-ReadNumericRegister.png) |
+| Write a numeric register | ![Write numeric register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteNumericRegister.png) |
+| Read a string register | ![Read string register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-ReadStringRegister.png) |
+| Write a string register | ![Write string register](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-WriteStringRegister.png) |
+| `SnpxIsConnected.vi` | ![SNPX is connected](https://raw.githubusercontent.com/underautomation/Fanuc.vi/refs/heads/main/.github/assets/snpx-SnpxIsConnected.png) |
+
+### CGTP (web server of the controller)
+
+The VIs of the `Cgtp` folder use the web server of the controller: `CgtpRunProgram.vi`,
+`CgtpPauseAllPrograms.vi`, `CgtpAbortTask.vi`, `CgtpReadVariableAsString.vi`,
+`CgtpWriteVariableAsInteger.vi`, `CgtpWriteVariableAsReal.vi`, `CgtpWriteVariableAsString.vi` and
+`CgtpIsEnabled.vi`.
+
+## Compatibility
+
+- **LabVIEW:** 2010 to 2024, one folder per version.
+- **Operating system:** Windows.
+- **Controllers:** R-J3iB, R-30iA, R-30iB, R-50iA, and ROBOGUIDE.
+
+## License
+
+This SDK needs a commercial license. A 30-day trial starts at the first use, no key needed.
+
+- License agreement: [underautomation.com/fanuc/eula](https://underautomation.com/fanuc/eula) and [License.md](License.md)
+- Trial, license key and source license: [underautomation.com/fanuc/documentation/license](https://underautomation.com/fanuc/documentation/license)
+- Prices and quote: [underautomation.com/fanuc](https://underautomation.com/fanuc)
+
+## Support
+
+- Documentation: [underautomation.com/fanuc/documentation](https://underautomation.com/fanuc/documentation)
+- Issues: [GitHub Issues](https://github.com/underautomation/Fanuc.vi/issues)
+- Contact: [underautomation.com/contact](https://underautomation.com/contact)
